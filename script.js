@@ -4,7 +4,7 @@
  * WHATSAPP_NUMBER: somente dígitos com DDI + DDD, ex.: '5511999999999'
  * ======================================================== */
 const CONFIG = {
-  CHECKOUT_URL: '',
+  CHECKOUT_URL: 'https://pay.cakto.com.br/fuw8nk4',
   WHATSAPP_NUMBER: '',
   WHATSAPP_MESSAGE: 'Olá! Quero saber mais sobre a análise da Scorevin.'
 };
@@ -167,6 +167,13 @@ toTop.addEventListener('click', () => {
       queue();
     }, { passive: true });
     hero.addEventListener('pointerleave', () => { mx = 0; my = 0; queue(); });
+  }
+
+  // "Voltar ao topo" sai da frente enquanto o cartão de preço está visível (a regra só vale no celular, no CSS)
+  const offerCard = document.querySelector('.offer-card');
+  const toTopBtn = document.getElementById('toTop');
+  if (offerCard && toTopBtn && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => toTopBtn.classList.toggle('on-offer', e.isIntersecting)).observe(offerCard);
   }
 
   let ticking = false;
