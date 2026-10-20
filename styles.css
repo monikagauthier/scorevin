@@ -317,3 +317,71 @@ figure { margin: 0; }
   .offer-card { padding: 22px; }
   .price { font-size: 46px; }
 }
+
+
+/* ===================== MELHORIAS v2 ===================== */
+
+/* Topo com sombra ao rolar (ativada via JS: .top.scrolled) */
+.top { transition: box-shadow .3s, background .3s; }
+.top.scrolled { box-shadow: 0 10px 30px -18px #000a; background: #07120ff5; }
+
+/* Pains: brilho sutil no hover */
+.pain { transition: border-color .25s, transform .25s, background .25s; }
+.pain:hover { border-color: #3f7a55; transform: translateY(-2px); background: #112820; }
+
+/* Botão: anel de foco mais visível + leve brilho no CTA principal */
+.btn:focus-visible { outline-offset: 4px; }
+.hero-actions .btn:first-child { position: relative; }
+
+/* Oferta: destaque no cartão de preço */
+.offer-card { transition: border-color .3s, box-shadow .3s; }
+.offer-card:focus-within,
+.offer-card:hover { border-color: #55ef91; box-shadow: 0 0 0 1px #55ef9133, 0 20px 50px -30px #55ef9166; }
+.price { color: var(--green); }
+
+/* Selo de confiança acima do preço */
+.offer-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #16331f; border: 1px solid #2f6345; color: #9af6b9;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 11px; border-radius: 50px; margin-bottom: 14px;
+}
+
+/* FAQ: realce ao abrir */
+.faq details[open] { background: #0d1c15; border-radius: 12px; }
+.faq details[open] summary { color: var(--green); }
+
+/* Rodapé: contatos clicáveis */
+.foot a.foot-contact { color: #c4d4cb; text-decoration: none; }
+.foot a.foot-contact:hover { color: var(--green); text-decoration: underline; }
+
+/* WhatsApp: pulsa levemente para chamar atenção (respeita reduced-motion) */
+.wa::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  box-shadow: 0 0 0 0 #25d36699; animation: wa-pulse 2.4s infinite;
+}
+@keyframes wa-pulse {
+  0% { box-shadow: 0 0 0 0 #25d36666; }
+  70% { box-shadow: 0 0 0 16px #25d36600; }
+  100% { box-shadow: 0 0 0 0 #25d36600; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa::after { animation: none; }
+  .top { transition: none; }
+}
+
+/* Botão "voltar ao topo" */
+.to-top {
+  position: fixed; left: 20px; bottom: 20px; z-index: 30;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #10221b; border: 1px solid var(--line); color: var(--green);
+  display: grid; place-items: center; font-size: 20px; line-height: 1;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .25s, transform .25s, visibility .25s, background .2s;
+  box-shadow: 0 10px 24px -12px #000a;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: #163024; }
+@media (max-width: 850px) {
+  .to-top { bottom: 88px; left: 16px; }
+}
