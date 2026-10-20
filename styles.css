@@ -243,9 +243,6 @@ figure { margin: 0; }
 /* Peças 3D: a posição vem de --x/--y (% do quadro); o JS só soma o parallax em transform */
 .obj { position: absolute; z-index: 2; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: var(--w); translate: -50% -50%; }
 .obj img { display: block; width: 100%; height: auto; animation: obj-in 1s var(--ease-out) var(--in) both, bob var(--t) var(--ease-in-out) var(--in) infinite; }
-.obj-shield { --x: 52; --y: 19; --w: clamp(58px, 6.6%, 108px); --in: .8s; --t: 7.5s; }
-.obj-doc { --x: 93; --y: 84; --w: clamp(66px, 7.6%, 124px); --in: .95s; --t: 9s; }
-.obj-doc img { animation-direction: normal, reverse; }
 .obj-spark { --x: 58.5; --y: 11; --w: clamp(18px, 1.8%, 30px); --in: 1.2s; --t: 4s; }
 .obj-spark img { animation: obj-in 1s var(--ease-out) 1.2s both, twinkle 3.8s var(--ease-in-out) 2.2s infinite; }
 
@@ -338,8 +335,9 @@ main > section { overflow-x: clip; }
 .how-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 72px; align-items: start; }
 .how-layout .section-head { margin-bottom: 40px; }
 .steps { --p: 0; position: relative; display: grid; margin: 0; padding: 0; list-style: none; }
+/* O trilho vai do centro do 1º nó ao centro do último (--rail-end é calculado no script.js) */
 .steps::before, .steps::after {
-  content: ''; position: absolute; left: 11px; top: 10px; bottom: 34px; width: 2px; border-radius: 2px;
+  content: ''; position: absolute; left: 11px; top: 11px; bottom: var(--rail-end, 34px); width: 2px; border-radius: 2px;
 }
 .steps::before { background: var(--paper-line); }
 .steps::after { background: linear-gradient(var(--accent-deep), #2fcf76); transform-origin: top; transform: scaleY(var(--p)); }
@@ -354,6 +352,18 @@ main > section { overflow-x: clip; }
 .step.on b { color: #157a42; }
 .step h3 { margin: 8px 0 6px; font-size: 20px; line-height: 1.3; }
 .step p { margin: 0; max-width: 46ch; font-size: 15.5px; color: var(--paper-ink-2); }
+.step:last-child { padding-bottom: 0; }
+/* Etapa final: o nó vira um selo de conclusão com check */
+.step.is-done::before { left: -2px; top: -3px; width: 28px; height: 28px; }
+.step.is-done::after {
+  content: ''; position: absolute; left: 4px; top: 3px; z-index: 2; width: 16px; height: 16px;
+  background: #b9bfc4;
+  -webkit-mask: var(--i-check) center / contain no-repeat;
+          mask: var(--i-check) center / contain no-repeat;
+  transition: background-color .4s;
+}
+.step.is-done.on::before { background: #2fcf76; border-color: var(--accent-deep); box-shadow: 0 0 0 7px rgba(47, 207, 118, .16), 0 10px 18px -6px rgba(31, 154, 86, .55); scale: 1; }
+.step.is-done.on::after { background: #fff; }
 .phones { position: sticky; top: 120px; display: grid; grid-template-columns: repeat(2, minmax(0, 230px)); gap: 18px; justify-content: center; align-items: start; padding-top: 24px; }
 .phones img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 34px 50px -26px rgba(15, 17, 19, .55); }
 .phones img:first-child { rotate: -3deg; }
@@ -576,9 +586,6 @@ main > section { overflow-x: clip; }
 .js .shot-panel[data-reveal].in:hover img { transform: rotateY(-4deg) rotateX(1deg); }
 
 /* ===================== RESPONSIVO ===================== */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .obj-doc { display: none; } /* nessa faixa o canto do vídeo fica fora da tela */
-}
 @media (max-width: 1199px) {
   .pain { padding-right: 72px; }
   .vin-investigador { margin-left: -64px; }
@@ -602,7 +609,6 @@ main > section { overflow-x: clip; }
     background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(4, 5, 6, 0) 20%, rgba(4, 5, 6, 0) 80%, var(--bg-deep) 100%);
   }
   .hero-foot { order: 3; margin-top: 0; }
-  .obj-doc { --x: 93; --y: 84; }
 }
 
 /* Tablet em pé e celular */
@@ -649,9 +655,11 @@ main > section { overflow-x: clip; }
   .offer-vin { width: 180px; margin: 14px auto 0; }
   .offer-cardart { width: 54%; right: 10px; top: -10px; }
   .faq-sec { padding: 56px 0 88px; }
-  .faq-layout { grid-template-columns: 1fr; gap: 6px; }
+  /* Em uma coluna o Vin da lâmpada só empurrava as perguntas para baixo: some aqui (sem ocupar espaço) */
+  .faq-layout { grid-template-columns: 1fr; gap: 0; }
   .faq-aside { position: static; }
-  .faq-vin { display: block; width: 180px; margin: 0 auto 8px; }
+  .faq-aside .section-head { margin-bottom: 24px; }
+  .faq-vin { display: none; }
   .final { padding: 56px 0 104px; }
   .foot-flex { grid-template-columns: 1fr; }
   .foot-legal { justify-self: start; }
