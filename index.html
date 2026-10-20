@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07120f">
+  <meta name="theme-color" content="#0b0c0e">
   <title>Scorevin — Seu nome merece novas oportunidades</title>
   <meta name="description" content="Seu nome merece novas oportunidades. Análise individual para identificar possíveis irregularidades e orientar caminhos de regularização do histórico de crédito.">
 
@@ -15,12 +15,12 @@
   <meta property="og:image" content="https://monikagauthier.github.io/scorevin/assets/vin-hero.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307120f'/%3E%3Cpath d='M18 44 44 18M28 18h16v16' stroke='%2355ef91' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0c0e'/%3E%3Cpath d='M18 44 44 18M28 18h16v16' stroke='%2355ef91' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <!-- Fontes servidas pelo próprio site (mais rápido e sem enviar dados do visitante ao Google) -->
+  <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v=: troque o número quando mudar styles.css ou script.js, para todos verem a versão nova na hora -->
-  <link rel="stylesheet" href="styles.css?v=20261020-2">
+  <link rel="stylesheet" href="styles.css?v=20261020-3">
 
   <!-- Dados estruturados do FAQ (SEO) -->
   <script type="application/ld+json">
@@ -41,13 +41,13 @@
   <header class="top">
     <div class="container nav">
       <a href="#inicio" class="brand" aria-label="Scorevin — início">score<span>vin.</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span class="ico ico-menu" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Principal">
         <a href="#como-funciona">Como funciona</a>
         <a href="#servico">O serviço</a>
         <a href="#escopo">O que inclui</a>
         <a href="#duvidas">Dúvidas</a>
-        <a class="btn small" href="#contratar">Solicitar análise →</a>
+        <a class="btn small" href="#contratar">Solicitar análise <span class="ico ico-arrow-right" aria-hidden="true"></span></a>
       </nav>
     </div>
   </header>
@@ -60,13 +60,12 @@
         <source src="assets/vin-hero.mp4" type="video/mp4">
       </video>
       <div class="container hero-inner">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="dot"></span> Seu crédito sem mistério</div>
+        <div class="hero-copy">
           <h1>Seu nome merece<br><em>novas oportunidades.</em></h1>
           <p class="lead">Crédito negado, score baixo ou restrições no CPF? A Scorevin oferece uma análise individual para identificar possíveis irregularidades e orientar os caminhos de regularização do seu histórico de crédito.</p>
           <div class="hero-actions">
-            <a class="btn" href="#contratar" data-track="hero_cta">QUERO MINHA ANÁLISE AGORA <span aria-hidden="true">↗</span></a>
-            <a class="btn outline" href="#como-funciona">Entenda como funciona ↓</a>
+            <a class="btn" href="#contratar" data-track="hero_cta">QUERO MINHA ANÁLISE AGORA <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
+            <a class="btn outline" href="#como-funciona">Entenda como funciona <span class="ico ico-arrow-down" aria-hidden="true"></span></a>
           </div>
           <p class="sub">Análise individual • Atendimento humano • Orientação clara</p>
           <ul class="trust">
@@ -81,22 +80,21 @@
     <!-- IDENTIFICAÇÃO / DORES -->
     <section>
       <div class="container pains-layout">
-        <figure class="vin vin-investigador reveal">
+        <figure class="vin vin-investigador">
           <img src="assets/img/vin-investigador-400.webp"
                srcset="assets/img/vin-investigador-400.webp 400w, assets/img/vin-investigador-800.webp 800w"
                sizes="(max-width: 850px) 210px, 360px" width="400" height="442"
                loading="lazy" decoding="async" alt="">
         </figure>
         <div>
-          <div class="section-head reveal">
-            <div class="kicker">Isso parece familiar?</div>
+          <div class="section-head">
             <h2>O que está dificultando seu acesso ao crédito?</h2>
           </div>
           <div class="pains">
-            <div class="pain reveal"><span>→</span><p>Crédito negado?</p></div>
-            <div class="pain reveal"><span>→</span><p>Restrições no CPF?</p></div>
-            <div class="pain reveal"><span>→</span><p>Informações incorretas?</p></div>
-            <div class="pain reveal"><span>→</span><p>Score baixo? Dificuldade para conseguir financiamento?</p></div>
+            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Crédito negado?</p></div>
+            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Restrições no CPF?</p></div>
+            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Informações incorretas?</p></div>
+            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Score baixo? Dificuldade para conseguir financiamento?</p></div>
           </div>
         </div>
       </div>
@@ -105,18 +103,17 @@
     <!-- SERVIÇO -->
     <section id="servico" style="padding-top:0">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Por que a Scorevin?</div>
+        <div class="section-head">
           <h2>Chega de ficar sem saber por onde começar.</h2>
           <p class="muted">Nossa equipe avalia sua situação individualmente, identifica possíveis inconsistências e orienta as medidas administrativas e jurídicas cabíveis para regularização de informações de crédito.</p>
         </div>
         <div class="service-layout">
-          <div class="service-cards">
-            <article class="card reveal"><div class="icon" aria-hidden="true">⌕</div><h3>Análise individual do perfil de crédito</h3><p>Avaliação das informações relevantes para compreender sua situação de crédito.</p></article>
-            <article class="card reveal"><div class="icon" aria-hidden="true">✓</div><h3>Verificação de registros e possíveis inconsistências</h3><p>Análise de registros que possam exigir esclarecimento, correção ou regularização.</p></article>
-            <article class="card reveal"><div class="icon" aria-hidden="true">↗</div><h3>Orientação sobre regularização cadastral</h3><p>Indicação das medidas aplicáveis e encaminhamento para avaliação jurídica quando cabível.</p></article>
+          <div class="service-list">
+            <article class="service-item"><span class="ico ico-search" aria-hidden="true"></span><h3>Análise individual do perfil de crédito</h3><p>Avaliação das informações relevantes para compreender sua situação de crédito.</p></article>
+            <article class="service-item"><span class="ico ico-file-check" aria-hidden="true"></span><h3>Verificação de registros e possíveis inconsistências</h3><p>Análise de registros que possam exigir esclarecimento, correção ou regularização.</p></article>
+            <article class="service-item"><span class="ico ico-compass" aria-hidden="true"></span><h3>Orientação sobre regularização cadastral</h3><p>Indicação das medidas aplicáveis e encaminhamento para avaliação jurídica quando cabível.</p></article>
           </div>
-          <figure class="shot reveal">
+          <figure class="shot">
             <img src="assets/img/analise-credito-640.webp"
                  srcset="assets/img/analise-credito-640.webp 640w, assets/img/analise-credito-1280.webp 1280w"
                  sizes="(max-width: 850px) calc(100vw - 44px), 580px" width="640" height="480"
@@ -131,19 +128,18 @@
     <section class="light" id="como-funciona">
       <div class="container how-layout">
         <div>
-          <div class="section-head reveal">
-            <div class="kicker">Simples e transparente</div>
+          <div class="section-head">
             <h2>Do cadastro ao acompanhamento, sem complicação.</h2>
             <p class="muted">Um processo organizado para você saber o que acontece em cada etapa.</p>
           </div>
           <div class="steps">
-            <div class="step reveal"><b>ETAPA 01</b><h3>Solicite sua análise</h3><p>Contrate o serviço pelo site.</p></div>
-            <div class="step reveal"><b>ETAPA 02</b><h3>Envie suas informações</h3><p>Preencha seu cadastro em ambiente seguro.</p></div>
-            <div class="step reveal"><b>ETAPA 03</b><h3>Receba uma avaliação individual</h3><p>Nossa equipe verifica a situação e identifica medidas aplicáveis.</p></div>
-            <div class="step reveal"><b>ETAPA 04</b><h3>Acompanhe seu atendimento</h3><p>Consulte as etapas e atualizações do serviço.</p></div>
+            <div class="step"><b>ETAPA 01</b><h3>Solicite sua análise</h3><p>Contrate o serviço pelo site.</p></div>
+            <div class="step"><b>ETAPA 02</b><h3>Envie suas informações</h3><p>Preencha seu cadastro em ambiente seguro.</p></div>
+            <div class="step"><b>ETAPA 03</b><h3>Receba uma avaliação individual</h3><p>Nossa equipe verifica a situação e identifica medidas aplicáveis.</p></div>
+            <div class="step"><b>ETAPA 04</b><h3>Acompanhe seu atendimento</h3><p>Consulte as etapas e atualizações do serviço.</p></div>
           </div>
         </div>
-        <figure class="phones reveal">
+        <figure class="phones">
           <img src="assets/img/app-cadastro-360.webp"
                srcset="assets/img/app-cadastro-360.webp 360w, assets/img/app-cadastro-720.webp 720w"
                sizes="(max-width: 850px) 45vw, 230px" width="360" height="540"
@@ -161,13 +157,12 @@
     <!-- ESCOPO: INCLUI / NÃO INCLUI -->
     <section id="escopo">
       <div class="container">
-        <div class="section-head center reveal">
-          <div class="kicker">Benefícios da análise</div>
+        <div class="section-head center">
           <h2>Entenda o que a análise oferece.</h2>
           <p class="muted">Informações claras para orientar os próximos passos do seu histórico de crédito.</p>
         </div>
         <div class="scope">
-          <div class="scope-box yes reveal">
+          <div class="scope-box yes">
             <img class="scope-vin" src="assets/img/vin-checklist-400.webp" width="400" height="399"
                  loading="lazy" decoding="async" alt="">
             <h3>O que você recebe</h3>
@@ -179,7 +174,7 @@
               <li>Acompanhamento das providências realizadas.</li>
             </ul>
           </div>
-          <div class="scope-box next reveal">
+          <div class="scope-box next">
             <h3>Caminhos para novas oportunidades</h3>
             <ul>
               <li>Orientação para fortalecer seu perfil de crédito.</li>
@@ -195,13 +190,12 @@
     <!-- PAINEL DE ACOMPANHAMENTO -->
     <section style="padding-top:0">
       <div class="container split">
-        <div class="reveal">
-          <div class="kicker">Transparência de ponta a ponta</div>
+        <div>
           <h2>Seu caso acompanhado, etapa por etapa.</h2>
           <p class="muted">A Scorevin pode disponibilizar uma área do cliente com registro de informações enviadas, solicitações de documentos e status do atendimento.</p>
           <p class="muted">O prazo operacional estimado para análise e encaminhamento inicial poderá ser de até 20 dias, após o recebimento de todos os documentos, conforme condições contratuais. Respostas de terceiros, decisões judiciais e mudanças de pontuação não estão sob controle da Scorevin.</p>
         </div>
-        <figure class="shot reveal">
+        <figure class="shot">
           <img src="assets/img/painel-atendimento-640.webp"
                srcset="assets/img/painel-atendimento-640.webp 640w, assets/img/painel-atendimento-1280.webp 1280w"
                sizes="(max-width: 850px) calc(100vw - 44px), 545px" width="640" height="480"
@@ -214,9 +208,8 @@
     <!-- OFERTA -->
     <section id="contratar">
       <div class="container">
-        <div class="offer reveal">
+        <div class="offer">
           <div class="offer-copy">
-            <div class="kicker">Comece com informação</div>
             <h2>Seu próximo passo começa aqui.</h2>
             <p class="muted">Contratação da análise individual de informações de crédito.</p>
             <p class="fine">A contratação não inclui automaticamente representação judicial. Eventuais serviços advocatícios exigem avaliação e contratação apropriadas com profissional habilitado.</p>
@@ -226,9 +219,9 @@
                  loading="lazy" decoding="async" alt="">
           </div>
           <div class="offer-card">
-            <span class="offer-badge">🔒 Pagamento seguro</span>
-            <div style="font-size:13px;color:#a6c4b1">Valor de referência da análise*</div>
-            <div class="price">R$ 29,90 <small>à vista</small></div>
+            <span class="offer-badge"><span class="ico ico-lock" aria-hidden="true"></span> Pagamento seguro</span>
+            <div class="price-label">Valor de referência da análise*</div>
+            <div class="price">R$ 29<span class="price-sep">,</span>90 <small>à vista</small></div>
             <ul class="offer-list">
               <li>Análise individual do perfil de crédito</li>
               <li>Verificação de registros e possíveis inconsistências</li>
@@ -239,7 +232,7 @@
               <input type="checkbox" id="consent">
               <span>Li e concordo com os <a href="#termos">Termos de Uso</a> e a <a href="#privacidade">Política de Privacidade</a>, e entendo que não há garantia de aumento de score ou aprovação de crédito.</span>
             </label>
-            <button class="btn" id="checkout" style="width:100%" disabled>QUERO MINHA ANÁLISE AGORA ↗</button>
+            <button class="btn" id="checkout" disabled>QUERO MINHA ANÁLISE AGORA <span class="ico ico-arrow-up-right" aria-hidden="true"></span></button>
             <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
             <p class="fine">*R$ 29,90, condicionado à confirmação das condições comerciais.</p>
           </div>
@@ -251,11 +244,10 @@
     <section id="duvidas" style="padding-top:0">
       <div class="container faq-layout">
         <div class="faq-aside">
-          <div class="section-head reveal">
-            <div class="kicker">Perguntas frequentes</div>
+          <div class="section-head">
             <h2>Informação clara antes de contratar.</h2>
           </div>
-          <img class="faq-vin reveal" src="assets/img/vin-lampada-400.webp"
+          <img class="faq-vin" src="assets/img/vin-lampada-400.webp"
                srcset="assets/img/vin-lampada-400.webp 400w, assets/img/vin-lampada-800.webp 800w"
                sizes="(max-width: 850px) 190px, 300px" width="400" height="369"
                loading="lazy" decoding="async" alt="">
@@ -274,15 +266,14 @@
 
     <!-- CTA FINAL -->
     <section class="final">
-      <div class="container reveal">
+      <div class="container">
         <img class="final-vin" src="assets/img/vin-festa-400.webp"
              srcset="assets/img/vin-festa-400.webp 400w, assets/img/vin-festa-800.webp 800w"
              sizes="(max-width: 540px) 190px, 250px" width="400" height="398"
              loading="lazy" decoding="async" alt="">
-        <div class="kicker">Pronto para entender seu crédito?</div>
         <h2>Seu histórico de crédito merece atenção.</h2>
         <p class="muted">Dê o primeiro passo para entender sua situação e descobrir as medidas de regularização que podem ser aplicáveis ao seu caso.</p>
-        <a class="btn" href="#contratar" data-track="final_cta" style="margin-top:14px">COMEÇAR MINHA ANÁLISE ↗</a>
+        <a class="btn" href="#contratar" data-track="final_cta">COMEÇAR MINHA ANÁLISE <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
       </div>
     </section>
   </main>
@@ -318,8 +309,8 @@
   <div class="sticky-cta" id="stickyCta"><a class="btn" href="#contratar" data-track="sticky_cta">QUERO MINHA ANÁLISE AGORA — <span class="nowrap">R$ 29,90</span></a></div>
 
   <!-- Voltar ao topo -->
-  <button class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+  <button class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="ico ico-arrow-up" aria-hidden="true"></span></button>
 
-  <script src="script.js?v=20261020-2"></script>
+  <script src="script.js?v=20261020-3"></script>
 </body>
 </html>

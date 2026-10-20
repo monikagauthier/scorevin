@@ -12,16 +12,14 @@ const CONFIG = {
 // Menu mobile
 const toggle = document.getElementById('menuToggle');
 const menu = document.getElementById('menu');
-toggle.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
+// (o ícone ☰ / ✕ troca sozinho pelo CSS, conforme aria-expanded)
+const setMenu = open => {
+  menu.classList.toggle('open', open);
   toggle.setAttribute('aria-expanded', open);
-  toggle.textContent = open ? '✕' : '☰';
-});
-menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  menu.classList.remove('open');
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.textContent = '☰';
-}));
+  toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+};
+toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
 // Vídeo do hero: pausa para quem prefere menos movimento e quando sai da tela
 const heroVideo = document.getElementById('heroVideo');
@@ -33,17 +31,6 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
   }).observe(heroVideo);
 }
-
-// Animações de entrada ao rolar
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Barra CTA mobile: aparece após o hero e some na seção de oferta
 const sticky = document.getElementById('stickyCta');
