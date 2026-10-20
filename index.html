@@ -20,7 +20,8 @@
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v=: troque o número quando mudar styles.css ou script.js, para todos verem a versão nova na hora -->
-  <link rel="stylesheet" href="styles.css?v=20261020-3">
+  <link rel="stylesheet" href="styles.css?v=20261021-1">
+  <link rel="preload" href="assets/vin-hero.jpg" as="image" fetchpriority="high">
 
   <!-- Dados estruturados do FAQ (SEO) -->
   <script type="application/ld+json">
@@ -42,7 +43,7 @@
 
   <header class="top">
     <div class="container nav">
-      <a href="#inicio" class="brand" aria-label="Scorevin — início">score<span>vin.</span></a>
+      <a href="#inicio" class="brand" aria-label="Scorevin — início"><img src="assets/img/scorevin-logo-320.webp" srcset="assets/img/scorevin-logo-320.webp 320w, assets/img/scorevin-logo-480.webp 480w" sizes="(max-width: 540px) 108px, 132px" width="132" height="44" alt="Scorevin"></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span class="ico ico-menu" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Principal">
         <a href="#como-funciona">Como funciona</a>
@@ -57,65 +58,73 @@
   <main id="conteudo">
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <video class="hero-media" id="heroVideo" autoplay muted loop playsinline preload="auto"
-             poster="assets/vin-hero.jpg" aria-hidden="true">
-        <source src="assets/vin-hero.mp4" type="video/mp4">
-      </video>
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Seu nome negativado<br><em>pode ter solução.</em></h1>
-          <p class="lead">A Scorevin analisa suas restrições de crédito e busca a regularização de apontamentos indevidos por meio de medidas administrativas e jurídicas cabíveis.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#contratar" data-track="hero_cta">QUERO ANALISAR MINHAS RESTRIÇÕES <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
-            <a class="btn outline" href="#como-funciona">Como funciona <span class="ico ico-arrow-down" aria-hidden="true"></span></a>
-          </div>
-          <p class="sub">Atendimento individual, análise documental e acompanhamento das providências realizadas.</p>
-          <ul class="trust">
-            <li>Atendimento humano</li>
-            <li>Suporte jurídico quando cabível</li>
-            <li>Privacidade dos dados</li>
-          </ul>
+      <div class="container hero-copy">
+        <h1><span class="h1-soft">Seu nome negativado</span><br><em>pode ter <span class="mark">solução.<svg class="mark-line" viewBox="0 0 200 26" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 20C52 14 112 11 184 7M171 2.5 186 7l-10 11"/></svg></span></em></h1>
+        <p class="lead">A Scorevin analisa suas restrições de crédito e busca a regularização de apontamentos indevidos por meio de medidas administrativas e jurídicas cabíveis.</p>
+        <div class="hero-actions">
+          <a class="btn btn-glow" href="#contratar" data-track="hero_cta">QUERO ANALISAR MINHAS RESTRIÇÕES <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
+          <a class="btn outline" href="#como-funciona">Como funciona <span class="ico ico-arrow-down" aria-hidden="true"></span></a>
         </div>
+      </div>
+
+      <!-- Palco do Vin: vídeo oficial + peças 3D (posições em % do quadro 16:9 do vídeo) -->
+      <div class="hero-visual" aria-hidden="true">
+        <video class="hero-media" id="heroVideo" autoplay muted loop playsinline preload="auto"
+               poster="assets/vin-hero.jpg">
+          <source src="assets/vin-hero.mp4" type="video/mp4">
+        </video>
+        <span class="obj obj-shield" data-depth="26"><img src="assets/3d/peca-escudo.svg" width="132" height="144" alt="" decoding="async"></span>
+        <span class="obj obj-doc" data-depth="40"><img src="assets/3d/documento.svg" width="150" height="184" alt="" decoding="async"></span>
+        <span class="obj obj-spark" data-depth="14"><img src="assets/3d/brilho.svg" width="48" height="48" alt="" decoding="async"></span>
+      </div>
+
+      <div class="container hero-foot">
+        <p class="sub">Atendimento individual, análise documental e acompanhamento das providências realizadas.</p>
+        <ul class="trust">
+          <li><span class="ico ico-user" aria-hidden="true"></span>Atendimento humano</li>
+          <li><span class="ico ico-scale" aria-hidden="true"></span>Suporte jurídico quando cabível</li>
+          <li><span class="ico ico-lock" aria-hidden="true"></span>Privacidade dos dados</li>
+        </ul>
       </div>
     </section>
 
     <!-- IDENTIFICAÇÃO / DORES -->
-    <section>
+    <section class="pains-sec">
       <div class="container pains-layout">
-        <figure class="vin vin-investigador">
-          <img src="assets/img/vin-investigador-400.webp"
-               srcset="assets/img/vin-investigador-400.webp 400w, assets/img/vin-investigador-800.webp 800w"
-               sizes="(max-width: 850px) 210px, 360px" width="400" height="442"
-               loading="lazy" decoding="async" alt="">
-        </figure>
-        <div>
+        <div class="pains-main">
           <div class="section-head">
             <h2>Restrições no CPF estão dificultando sua vida financeira?</h2>
           </div>
-          <div class="pains">
-            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Nome negativado no Serasa ou SPC.</p></div>
-            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Apontamentos em cadastros de proteção ao crédito.</p></div>
-            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Dificuldade para solicitar cartões e empréstimos.</p></div>
-            <div class="pain"><span class="ico ico-arrow-right" aria-hidden="true"></span><p>Financiamentos recusados.</p></div>
-          </div>
+          <ul class="pains" role="list">
+            <li class="pain" data-reveal style="--d:0ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Nome negativado no Serasa ou SPC.</p></li>
+            <li class="pain" data-reveal style="--d:70ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Apontamentos em cadastros de proteção ao crédito.</p></li>
+            <li class="pain" data-reveal style="--d:140ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Dificuldade para solicitar cartões e empréstimos.</p></li>
+            <li class="pain" data-reveal style="--d:210ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Financiamentos recusados.</p></li>
+          </ul>
         </div>
+        <figure class="vin vin-investigador">
+          <img src="assets/img/vin-investigador-400.webp"
+               srcset="assets/img/vin-investigador-400.webp 400w, assets/img/vin-investigador-800.webp 800w"
+               sizes="(max-width: 899px) 200px, 380px" width="400" height="442"
+               loading="lazy" decoding="async" alt="">
+        </figure>
       </div>
     </section>
 
     <!-- SERVIÇO -->
-    <section id="servico" style="padding-top:0">
+    <section id="servico" class="service-sec">
       <div class="container">
-        <div class="section-head">
-          <h2>Regularização de crédito com análise individual e suporte jurídico quando cabível.</h2>
+        <div class="service-head">
+          <h2>Regularização de crédito <span class="h-soft">com análise individual e suporte jurídico quando cabível.</span></h2>
           <p class="muted">Nossa equipe avalia a situação do seu CPF e verifica a existência de fundamentos para contestação, correção ou exclusão de registros nos órgãos de proteção ao crédito. Quando necessário e juridicamente cabível, advogados habilitados poderão avaliar a adoção de medidas judiciais.</p>
         </div>
         <div class="service-layout">
           <div class="service-list">
-            <article class="service-item"><span class="ico ico-search" aria-hidden="true"></span><h3>Serasa, SPC&nbsp;Brasil, Boa&nbsp;Vista/Equifax e cartórios de protesto</h3><p>Apontamentos nesses órgãos podem ser analisados e regularizados, conforme a natureza de cada registro e o escopo do serviço contratado.</p></article>
-            <article class="service-item"><span class="ico ico-file-check" aria-hidden="true"></span><h3>Retirada de apontamentos indevidos por vias legais</h3><p>Contestação e pedidos de correção ou exclusão de registros indevidos ou irregulares, com base na análise documental.</p></article>
-            <article class="service-item"><span class="ico ico-compass" aria-hidden="true"></span><h3>Procedimentos e petições quando cabíveis</h3><p>Requerimentos administrativos e medidas judiciais, de acordo com os fundamentos e os documentos de cada caso.</p></article>
+            <article class="service-item is-lead" data-reveal><img class="piece" src="assets/3d/peca-registro.svg" width="132" height="144" alt="" loading="lazy" decoding="async"><h3>Serasa, SPC&nbsp;Brasil, Boa&nbsp;Vista/Equifax e cartórios de protesto</h3><p>Apontamentos nesses órgãos podem ser analisados e regularizados, conforme a natureza de cada registro e o escopo do serviço contratado.</p></article>
+            <article class="service-item" data-reveal style="--d:80ms"><img class="piece" src="assets/3d/peca-escudo.svg" width="132" height="144" alt="" loading="lazy" decoding="async"><h3>Retirada de apontamentos indevidos por vias legais</h3><p>Contestação e pedidos de correção ou exclusão de registros indevidos ou irregulares, com base na análise documental.</p></article>
+            <article class="service-item" data-reveal style="--d:160ms"><img class="piece" src="assets/3d/peca-balanca.svg" width="132" height="144" alt="" loading="lazy" decoding="async"><h3>Procedimentos e petições quando cabíveis</h3><p>Requerimentos administrativos e medidas judiciais, de acordo com os fundamentos e os documentos de cada caso.</p></article>
           </div>
-          <figure class="shot">
+          <figure class="shot shot-service" data-reveal>
             <img src="assets/img/analise-credito-640.webp"
                  srcset="assets/img/analise-credito-640.webp 640w, assets/img/analise-credito-1280.webp 1280w"
                  sizes="(max-width: 850px) calc(100vw - 44px), 580px" width="640" height="480"
@@ -134,13 +143,13 @@
             <h2>Da solicitação ao acompanhamento, sem complicação.</h2>
             <p class="muted">Um processo organizado para você saber o que acontece em cada etapa.</p>
           </div>
-          <div class="steps">
-            <div class="step"><b>ETAPA 01</b><h3>Solicitação</h3><p>O cliente contrata a análise inicial.</p></div>
-            <div class="step"><b>ETAPA 02</b><h3>Cadastro</h3><p>Após a confirmação do pagamento, preenche nome completo, CPF, score informado e dados sobre suas restrições.</p></div>
-            <div class="step"><b>ETAPA 03</b><h3>Análise individual</h3><p>A equipe verifica as informações fornecidas e identifica possíveis irregularidades.</p></div>
-            <div class="step"><b>ETAPA 04</b><h3>Providências cabíveis</h3><p>São avaliadas medidas administrativas e, quando houver fundamento, medidas jurídicas conduzidas por profissionais habilitados.</p></div>
-            <div class="step"><b>ETAPA 05</b><h3>Acompanhamento</h3><p>O cliente acompanha o andamento do atendimento em sua área exclusiva.</p></div>
-          </div>
+          <ol class="steps" role="list">
+            <li class="step"><b>ETAPA 01</b><h3>Solicitação</h3><p>O cliente contrata a análise inicial.</p></li>
+            <li class="step"><b>ETAPA 02</b><h3>Cadastro</h3><p>Após a confirmação do pagamento, preenche nome completo, CPF, score informado e dados sobre suas restrições.</p></li>
+            <li class="step"><b>ETAPA 03</b><h3>Análise individual</h3><p>A equipe verifica as informações fornecidas e identifica possíveis irregularidades.</p></li>
+            <li class="step"><b>ETAPA 04</b><h3>Providências cabíveis</h3><p>São avaliadas medidas administrativas e, quando houver fundamento, medidas jurídicas conduzidas por profissionais habilitados.</p></li>
+            <li class="step"><b>ETAPA 05</b><h3>Acompanhamento</h3><p>O cliente acompanha o andamento do atendimento em sua área exclusiva.</p></li>
+          </ol>
         </div>
         <figure class="phones">
           <img src="assets/img/app-cadastro-360.webp"
@@ -158,14 +167,14 @@
     </section>
 
     <!-- ESCOPO: INCLUI / NÃO INCLUI -->
-    <section id="escopo">
+    <section id="escopo" class="scope-sec">
       <div class="container">
         <div class="section-head center">
           <h2>Entenda o alcance do serviço.</h2>
           <p class="muted">O que fazemos no seu caso e o que a regularização pode representar para o seu crédito.</p>
         </div>
         <div class="scope">
-          <div class="scope-box yes">
+          <div class="scope-box yes" data-reveal>
             <img class="scope-vin" src="assets/img/vin-checklist-400.webp" width="400" height="399"
                  loading="lazy" decoding="async" alt="">
             <h3>O que você recebe</h3>
@@ -177,7 +186,8 @@
               <li>Acompanhamento das providências realizadas.</li>
             </ul>
           </div>
-          <div class="scope-box next">
+          <div class="scope-box next" data-reveal style="--d:120ms">
+            <img class="scope-arrow" src="assets/3d/seta.svg" width="100" height="116" loading="lazy" decoding="async" alt="">
             <h3>Depois da regularização</h3>
             <ul>
               <li>Possibilidade de recuperar a saúde do seu crédito.</li>
@@ -191,14 +201,14 @@
     </section>
 
     <!-- PAINEL DE ACOMPANHAMENTO -->
-    <section style="padding-top:0">
+    <section class="panel-sec">
       <div class="container split">
         <div>
           <h2>Seu caso acompanhado, etapa por etapa.</h2>
           <p class="muted">Na sua área exclusiva, você acompanha as informações enviadas, as solicitações de documentos e o status de cada etapa do atendimento.</p>
           <p class="muted">Nosso prazo operacional estimado para análise e encaminhamento das providências é de 20 a 35 dias, conforme a complexidade do caso, contados a partir do recebimento das suas informações e documentos. Respostas dos órgãos de proteção ao crédito e dos cartórios, assim como decisões judiciais, seguem prazos próprios.</p>
         </div>
-        <figure class="shot">
+        <figure class="shot shot-panel" data-reveal>
           <img src="assets/img/painel-atendimento-640.webp"
                srcset="assets/img/painel-atendimento-640.webp 640w, assets/img/painel-atendimento-1280.webp 1280w"
                sizes="(max-width: 850px) calc(100vw - 44px), 545px" width="640" height="480"
@@ -209,7 +219,7 @@
     </section>
 
     <!-- OFERTA -->
-    <section id="contratar">
+    <section id="contratar" class="offer-sec">
       <div class="container">
         <div class="offer">
           <div class="offer-copy">
@@ -221,7 +231,9 @@
                  sizes="(max-width: 850px) 190px, 270px" width="400" height="394"
                  loading="lazy" decoding="async" alt="">
           </div>
-          <div class="offer-card">
+          <div class="offer-stack">
+          <img class="offer-cardart" src="assets/3d/cartao.svg" width="380" height="264" loading="lazy" decoding="async" alt="">
+          <div class="offer-card" data-reveal>
             <span class="offer-badge"><span class="ico ico-lock" aria-hidden="true"></span> Pagamento seguro</span>
             <div class="price-label">Valor da análise inicial*</div>
             <div class="price">R$ 29<span class="price-sep">,</span>90 <small>à vista</small></div>
@@ -239,12 +251,13 @@
             <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
             <p class="fine">*Não inclui petições, honorários advocatícios nem despesas judiciais.</p>
           </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="duvidas" style="padding-top:0">
+    <section id="duvidas" class="faq-sec">
       <div class="container faq-layout">
         <div class="faq-aside">
           <div class="section-head">
@@ -271,11 +284,15 @@
     <!-- CTA FINAL -->
     <section class="final">
       <div class="container">
-        <img class="final-vin" src="assets/img/vin-festa-400.webp"
-             srcset="assets/img/vin-festa-400.webp 400w, assets/img/vin-festa-800.webp 800w"
-             sizes="(max-width: 540px) 190px, 250px" width="400" height="398"
-             loading="lazy" decoding="async" alt="">
-        <h2>Seu nome negativado pode ter solução.</h2>
+        <div class="final-stage" data-reveal>
+          <img class="final-vin" src="assets/img/vin-festa-400.webp"
+               srcset="assets/img/vin-festa-400.webp 400w, assets/img/vin-festa-800.webp 800w"
+               sizes="(max-width: 540px) 190px, 250px" width="400" height="398"
+               loading="lazy" decoding="async" alt="">
+          <img class="final-spark s1" src="assets/3d/brilho.svg" width="48" height="48" loading="lazy" decoding="async" alt="">
+          <img class="final-spark s2" src="assets/3d/brilho.svg" width="48" height="48" loading="lazy" decoding="async" alt="">
+        </div>
+        <h2><span class="h1-soft">Seu nome negativado</span> <em>pode ter <span class="mark">solução.<svg class="mark-line" viewBox="0 0 200 26" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 20C52 14 112 11 184 7M171 2.5 186 7l-10 11"/></svg></span></em></h2>
         <p class="muted">Conheça o serviço de regularização de restrições da Scorevin e dê o primeiro passo para recuperar sua saúde de crédito.</p>
         <a class="btn" href="#contratar" data-track="final_cta">COMEÇAR MINHA ANÁLISE <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
       </div>
@@ -293,7 +310,7 @@
           <a class="foot-contact" href="tel:+5500000000000">(00) 00000-0000</a>
         </p>
       </div>
-      <div style="max-width:650px">
+      <div class="foot-legal">
         <p>Serviços sujeitos à análise individual. Sem garantia de aumento de score, exclusão de registros legítimos ou aprovação de crédito. A Scorevin não é vinculada a birôs de crédito nem a instituições financeiras.</p>
         <div class="foot-links">
           <a href="#termos" id="termos">Termos de Uso</a>
@@ -315,6 +332,6 @@
   <!-- Voltar ao topo -->
   <button class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="ico ico-arrow-up" aria-hidden="true"></span></button>
 
-  <script src="script.js?v=20261020-3"></script>
+  <script src="script.js?v=20261021-1"></script>
 </body>
 </html>
