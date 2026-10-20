@@ -132,15 +132,20 @@ toTop.addEventListener('click', () => {
     byId.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
   }
 
-  // Etapas: a linha verde acompanha a leitura
+  // Etapas: a linha verde acompanha a leitura e acende cada etapa ao chegar nela.
+  // O trilho vai do centro do 1º nó (11 px) ao centro do último, seja qual for a quantidade de etapas.
   const steps = document.querySelector('.steps');
   const stepItems = steps ? [...steps.querySelectorAll('.step')] : [];
+  const NODE = 11;
   const updateSteps = () => {
-    if (!steps) return;
+    if (!steps || !stepItems.length) return;
     const r = steps.getBoundingClientRect();
-    const p = reduce ? 1 : Math.min(1, Math.max(0, (innerHeight * 0.7 - r.top) / r.height));
+    const last = stepItems[stepItems.length - 1];
+    const rail = Math.max(1, last.offsetTop);
+    steps.style.setProperty('--rail-end', `${Math.round(steps.offsetHeight - last.offsetTop - NODE)}px`);
+    const p = reduce ? 1 : Math.min(1, Math.max(0, (innerHeight * 0.7 - (r.top + NODE)) / rail));
     steps.style.setProperty('--p', p.toFixed(3));
-    stepItems.forEach(it => it.classList.toggle('on', p * r.height >= it.offsetTop + 8 || p === 1));
+    stepItems.forEach(it => it.classList.toggle('on', p >= 1 || p * rail >= it.offsetTop - 2));
   };
 
   // Peças 3D do topo: parallax leve com o mouse e com a rolagem
