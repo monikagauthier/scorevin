@@ -20,7 +20,7 @@
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v=: troque o número quando mudar styles.css ou script.js, para todos verem a versão nova na hora -->
-  <link rel="stylesheet" href="styles.css?v=20261022-2">
+  <link rel="stylesheet" href="styles.css?v=20261022-3">
   <link rel="preload" href="assets/vin-hero.jpg" as="image" fetchpriority="high">
 
   <!-- Dados estruturados do FAQ (SEO) -->
@@ -78,7 +78,7 @@
 
       <div class="container hero-foot">
         <p class="sub">Atendimento individual, análise documental e acompanhamento das providências realizadas.</p>
-        <ul class="trust">
+        <ul class="trust" data-luz>
           <li><span class="ico ico-user" aria-hidden="true"></span>Atendimento humano</li>
           <li><span class="ico ico-scale" aria-hidden="true"></span>Suporte jurídico quando cabível</li>
           <li><span class="ico ico-lock" aria-hidden="true"></span>Privacidade dos dados</li>
@@ -93,7 +93,7 @@
           <div class="section-head">
             <h2>Restrições no CPF estão dificultando sua vida financeira?</h2>
           </div>
-          <ul class="pains" role="list">
+          <ul class="pains" role="list" data-luz>
             <li class="pain" data-reveal style="--d:0ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Nome negativado no Serasa ou SPC.</p></li>
             <li class="pain" data-reveal style="--d:70ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Apontamentos em cadastros de proteção ao crédito.</p></li>
             <li class="pain" data-reveal style="--d:140ms"><span class="ico ico-x-circle" aria-hidden="true"></span><p>Dificuldade para solicitar cartões e empréstimos.</p></li>
@@ -173,7 +173,7 @@
           <p class="muted">O que fazemos no seu caso e o que a regularização pode representar para o seu crédito.</p>
         </div>
         <div class="scope">
-          <div class="scope-box yes" data-reveal>
+          <div class="scope-box yes" data-reveal data-luz>
             <img class="scope-vin" src="assets/img/vin-checklist-400.webp" width="400" height="399"
                  loading="lazy" decoding="async" alt="">
             <h3>O que você recebe</h3>
@@ -185,7 +185,7 @@
               <li>Acompanhamento das providências realizadas.</li>
             </ul>
           </div>
-          <div class="scope-box next" data-reveal style="--d:120ms">
+          <div class="scope-box next" data-reveal data-luz style="--d:120ms">
             <img class="scope-arrow" src="assets/3d/seta.svg" width="100" height="116" loading="lazy" decoding="async" alt="">
             <h3>Depois da regularização</h3>
             <ul>
@@ -231,7 +231,8 @@
           </div>
           <div class="offer-stack">
           <img class="offer-cardart" src="assets/3d/cartao.svg" width="380" height="264" loading="lazy" decoding="async" alt="">
-          <div class="offer-card" data-reveal>
+          <div class="offer-card" data-reveal data-luz>
+            <span class="luz" aria-hidden="true"></span>
             <span class="offer-badge is-promo"><span class="ico ico-tag" aria-hidden="true"></span> Oferta especial</span>
             <div class="price-label">Valor da análise inicial</div>
             <p class="price-old"><span>De <del>R$ 97,00</del> por</span> <span class="price-off">71% DE DESCONTO</span></p>
@@ -333,6 +334,6 @@
   <!-- Voltar ao topo -->
   <button class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="ico ico-arrow-up" aria-hidden="true"></span></button>
 
-  <script src="script.js?v=20261022-2"></script>
+  <script src="script.js?v=20261022-3"></script>
 </body>
 </html>

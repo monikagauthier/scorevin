@@ -596,6 +596,18 @@ main > section { overflow-x: clip; }
 @media (max-width: 899px) { .to-top.show.on-offer { opacity: 0; visibility: hidden; transform: translateY(8px); } }
 .to-top:hover { background: var(--surface-2); }
 
+/* Luz que segue o mouse (efeito 12): o JS só escreve --x e --y; o brilho é este gradiente.
+ * Fica atrás do texto (z-index -1 dentro de isolation) e só existe com mouse. */
+[data-luz] { position: relative; isolation: isolate; }
+.trust[data-luz]::before, .pains[data-luz]::before, .scope-box[data-luz]::before, .offer-card .luz {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  opacity: 0; transition: opacity .35s;
+  background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgba(150, 255, 190, .13), rgba(85, 239, 145, .045) 45%, transparent 70%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .trust[data-luz]:hover::before, .pains[data-luz]:hover::before, .scope-box[data-luz]:hover::before, .offer-card[data-luz]:hover .luz { opacity: 1; }
+}
+
 /* Entradas ao rolar: só existem com JS ativo (classe .js); sem JS tudo aparece normalmente */
 .js [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease-out) var(--d, 0ms), transform 1s var(--ease-out) var(--d, 0ms); }
 .js .pain[data-reveal] { transform: translateX(-14px); }
