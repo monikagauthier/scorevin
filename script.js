@@ -39,9 +39,6 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('in');
-      if (e.target.id === 'progress' || e.target.querySelector('#progress')) {
-        document.getElementById('progress').classList.add('on');
-      }
       io.unobserve(e.target);
     }
   });
