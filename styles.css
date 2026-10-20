@@ -201,8 +201,7 @@ figure { margin: 0; }
 .faq-aside { position: sticky; top: 110px; }
 .faq-aside .section-head { margin-bottom: 18px; }
 .faq-vin { width: min(300px, 100%); }
-.faq details:first-child { padding-top: 6px; }
-.faq details { border-bottom: 1px solid var(--line); padding: 22px 4px; }
+.faq details { border-bottom: 1px solid var(--line); padding: 20px 16px; }
 .faq summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: '+'; color: var(--green); font-size: 22px; line-height: 1; }
@@ -246,7 +245,8 @@ figure { margin: 0; }
   transform: translateY(110%); transition: transform .3s;
 }
 .sticky-cta.show { transform: none; }
-.sticky-cta .btn { width: 100%; }
+.sticky-cta .btn { width: 100%; display: block; text-align: center; text-wrap: balance; }
+.nowrap { white-space: nowrap; }
 
 /* Animações de entrada */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -290,7 +290,8 @@ figure { margin: 0; }
   .offer { padding: 30px; }
   .offer-vin { width: 190px; margin: 10px auto -6px; padding-top: 0; }
   .sticky-cta { display: block; }
-  .wa { bottom: 88px; }
+  /* Acima da barra CTA fixa, que pode ter 2 linhas (~101px) + área segura do iPhone */
+  .wa { bottom: calc(112px + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 540px) {
   .container { width: calc(100% - 34px); }
@@ -383,5 +384,5 @@ figure { margin: 0; }
 .to-top.show { opacity: 1; visibility: visible; transform: none; }
 .to-top:hover { background: #163024; }
 @media (max-width: 850px) {
-  .to-top { bottom: 88px; left: 16px; }
+  .to-top { bottom: calc(112px + env(safe-area-inset-bottom)); left: 16px; }
 }
