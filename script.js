@@ -176,6 +176,24 @@ toTop.addEventListener('click', () => {
     new IntersectionObserver(([e]) => toTopBtn.classList.toggle('on-offer', e.isIntersecting)).observe(offerCard);
   }
 
+  // Luz que segue o mouse nos cartões [data-luz] (efeito 12): só escreve a posição em --x/--y.
+  // Só com mouse: no toque o brilho ficaria parado no meio do cartão.
+  if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('[data-luz]').forEach(el => {
+      let raf = 0, last = null;
+      el.addEventListener('mousemove', ev => {
+        last = ev;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--x', `${last.clientX - r.left}px`);
+          el.style.setProperty('--y', `${last.clientY - r.top}px`);
+        });
+      });
+    });
+  }
+
   let ticking = false;
   const frame = () => {
     ticking = false;
