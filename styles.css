@@ -64,17 +64,23 @@ p { line-height: 1.75; }
 
 /* Hero */
 .hero {
-  position: relative; min-height: 660px; display: flex; align-items: center; overflow: hidden;
-  background:
-    linear-gradient(90deg, #07120f 0%, #07120fe8 32%, #07120f00 77%),
-    url('assets/vin-hero.png') center right / cover no-repeat,
-    radial-gradient(circle at 80% 40%, #1d6b3d 0%, #07120f 55%);
+  position: relative; min-height: min(56.25vw, 820px); display: flex; align-items: center; overflow: hidden;
+  padding: 0;
+  background: radial-gradient(circle at 80% 40%, #1d6b3d 0%, #07120f 55%);
+}
+.hero-media {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: right center; z-index: 0;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, #07120f 0%, #07120fe8 32%, #07120f00 77%);
 }
 .hero::after {
   content: ''; position: absolute; inset: auto 0 0; height: 130px;
-  background: linear-gradient(transparent, var(--bg)); pointer-events: none;
+  background: linear-gradient(transparent, var(--bg)); pointer-events: none; z-index: 1;
 }
-.hero-inner { position: relative; z-index: 1; padding: 90px 0 130px; }
+.hero-inner { position: relative; z-index: 2; padding: 64px 0 96px; }
 .hero-copy { max-width: 610px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
@@ -83,7 +89,7 @@ p { line-height: 1.75; }
   letter-spacing: .09em; text-transform: uppercase;
 }
 .dot { height: 7px; width: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px var(--green); }
-h1 { font-size: clamp(40px, 5.5vw, 74px); line-height: 1.08; margin: 25px 0 22px; font-weight: 800; }
+h1 { font-size: clamp(40px, 4.6vw, 64px); line-height: 1.08; margin: 25px 0 22px; font-weight: 800; }
 h1 em { font-style: normal; color: var(--green); }
 .lead { font-size: 17px; line-height: 1.8; color: #c0d0c5; max-width: 520px; }
 .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
@@ -235,12 +241,14 @@ h2 { font-size: clamp(30px, 4vw, 50px); line-height: 1.17; margin: 14px 0 16px; 
   .links .btn { margin-top: 14px; }
   .hero {
     min-height: 750px; align-items: flex-start;
-    background:
-      linear-gradient(180deg, #07120f 0%, #07120f 25%, #07120fb0 52%, #07120f00 100%),
-      url('assets/vin-hero.png') 67% bottom / auto 65% no-repeat,
-      radial-gradient(circle at 70% 85%, #1d6b3d 0%, #07120f 55%);
+    background: #040a08;
   }
-  .hero-inner { padding: 68px 0 300px; }
+  .hero-media { top: auto; bottom: 0; height: 440px; object-position: 70% bottom; }
+  .hero::before {
+    top: auto; height: 440px;
+    background: linear-gradient(180deg, #040a08 0%, #040a08b0 20%, #040a0800 50%);
+  }
+  .hero-inner { padding: 68px 0 400px; }
   .grid, .steps { grid-template-columns: repeat(2, 1fr); }
   .split, .offer, .scope { grid-template-columns: 1fr; gap: 25px; }
   .offer { padding: 30px; }
@@ -251,14 +259,10 @@ h2 { font-size: clamp(30px, 4vw, 50px); line-height: 1.17; margin: 14px 0 16px; 
   .container { width: calc(100% - 34px); }
   .nav { min-height: 66px; }
   .brand { font-size: 23px; }
-  .hero {
-    min-height: 765px;
-    background:
-      linear-gradient(180deg, #07120f 0%, #07120f 34%, #07120f88 58%, #07120f00 100%),
-      url('assets/vin-hero.png') 66% bottom / auto 49% no-repeat,
-      radial-gradient(circle at 66% 90%, #1d6b3d 0%, #07120f 55%);
-  }
-  .hero-inner { padding: 43px 0 290px; }
+  .hero { min-height: 0; }
+  .hero-media, .hero::before { height: 340px; }
+  .hero-media { object-position: 72% bottom; }
+  .hero-inner { padding: 43px 0 320px; }
   h1 { font-size: 40px; }
   .lead { font-size: 15px; line-height: 1.65; }
   .hero-actions { flex-direction: column; }

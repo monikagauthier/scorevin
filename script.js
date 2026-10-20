@@ -23,6 +23,17 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   toggle.textContent = '☰';
 }));
 
+// Vídeo do hero: pausa para quem prefere menos movimento e quando sai da tela
+const heroVideo = document.getElementById('heroVideo');
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  heroVideo.removeAttribute('autoplay');
+  heroVideo.pause();
+} else {
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
+  }).observe(heroVideo);
+}
+
 // Animações de entrada ao rolar
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
