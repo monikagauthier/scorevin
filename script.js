@@ -88,3 +88,22 @@ function track(event) {
 document.querySelectorAll('[data-track]').forEach(el =>
   el.addEventListener('click', () => track(el.dataset.track))
 );
+
+
+
+// Sombra no topo ao rolar
+const topBar = document.querySelector('.top');
+const toTop = document.getElementById('toTop');
+const onScroll = () => {
+  const y = window.scrollY;
+  topBar.classList.toggle('scrolled', y > 10);
+  toTop.classList.toggle('show', y > 600);
+};
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// Voltar ao topo
+toTop.addEventListener('click', () => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+});
