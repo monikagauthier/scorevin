@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 4 100 116" width="100" height="116">
+  <defs>
+    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8ffcb"/>
+      <stop offset=".55" stop-color="#55ef91"/>
+      <stop offset="1" stop-color="#2cc06b"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="9" stdDeviation="6" flood-color="#000" flood-opacity=".6"/>
+    </filter>
+  </defs>
+  <g transform="rotate(45 50 54)" filter="url(#drop)">
+    <!-- costas e laterais (espessura) -->
+    <path d="M57 13 95 51H71v50H43V51H19z" fill="#0a3d22"/>
+    <path d="M88 44H64l7 7h24z" fill="#0f5a32"/>
+    <path d="M64 44v50l7 7V51z" fill="#14753f"/>
+    <path d="M64 94H36l7 7h28z" fill="#0c4a29"/>
+    <path d="M36 44H12l7 7h24z" fill="#0f5a32"/>
+    <!-- face frontal -->
+    <path d="M50 6 88 44H64v50H36V44H12z" fill="url(#front)"/>
+    <path d="M12 44 50 6l38 38" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M44 50h6v40h-6z" fill="#fff" opacity=".12"/>
+  </g>
+</svg>

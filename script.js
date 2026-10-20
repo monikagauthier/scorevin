@@ -94,3 +94,84 @@ toTop.addEventListener('click', () => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
 });
+
+/* ===================== MOVIMENTO =====================
+ * Tudo aqui é visual. Se algo falhar, a página continua completa e visível.
+ * Quem prefere menos movimento recebe a página estática.
+ * ===================================================== */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  // Entradas ao rolar (a classe .js só é ligada depois que o observador existe)
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+    root.classList.add('js');
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Menu: destaca a seção em que a pessoa está
+  const navLinks = [...document.querySelectorAll('#menu a[href^="#"]:not(.btn)')];
+  if ('IntersectionObserver' in window) {
+    const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const spy = new IntersectionObserver(entries => entries.forEach(e => {
+      const link = byId.get(e.target.id);
+      if (!link) return;
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'true');
+      } else if (link.hasAttribute('aria-current')) {
+        link.removeAttribute('aria-current');
+      }
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    byId.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
+  }
+
+  // Etapas: a linha verde acompanha a leitura
+  const steps = document.querySelector('.steps');
+  const stepItems = steps ? [...steps.querySelectorAll('.step')] : [];
+  const updateSteps = () => {
+    if (!steps) return;
+    const r = steps.getBoundingClientRect();
+    const p = reduce ? 1 : Math.min(1, Math.max(0, (innerHeight * 0.7 - r.top) / r.height));
+    steps.style.setProperty('--p', p.toFixed(3));
+    stepItems.forEach(it => it.classList.toggle('on', p * r.height >= it.offsetTop + 8 || p === 1));
+  };
+
+  // Peças 3D do topo: parallax leve com o mouse e com a rolagem
+  const hero = document.getElementById('inicio');
+  const objs = hero ? [...hero.querySelectorAll('.obj')] : [];
+  let mx = 0, my = 0;
+  const renderObjs = () => {
+    const sy = Math.min(scrollY, innerHeight);
+    objs.forEach(o => {
+      const d = +o.dataset.depth || 0;
+      o.style.transform = `translate3d(${(-mx * d).toFixed(1)}px, ${(-my * d - sy * d / 180).toFixed(1)}px, 0)`;
+    });
+  };
+  if (!reduce && hero && matchMedia('(pointer: fine)').matches) {
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width - 0.5;
+      my = (e.clientY - r.top) / r.height - 0.5;
+      queue();
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { mx = 0; my = 0; queue(); });
+  }
+
+  let ticking = false;
+  const frame = () => {
+    ticking = false;
+    updateSteps();
+    if (!reduce) renderObjs();
+  };
+  function queue() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue, { passive: true });
+  frame();
+})();

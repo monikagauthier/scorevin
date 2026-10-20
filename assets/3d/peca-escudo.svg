@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 144" width="132" height="144">
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2c3137"/>
+      <stop offset=".5" stop-color="#16191c"/>
+      <stop offset="1" stop-color="#0c0e10"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".32"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#55ef91" stop-opacity=".5"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22834e"/>
+      <stop offset="1" stop-color="#0a2a19"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="175%">
+      <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000" flood-opacity=".6"/>
+    </filter>
+    <filter id="neon" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+  </defs>
+  <g filter="url(#drop)">
+    <rect x="14" y="22" width="104" height="104" rx="26" fill="#050607" stroke="#55ef91" stroke-opacity=".22"/>
+    <rect x="14" y="12" width="104" height="104" rx="26" fill="url(#face)"/>
+    <rect x="14.75" y="12.75" width="102.5" height="102.5" rx="25.25" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+  </g>
+  <path d="M66 34l24 9v19c0 15-10 27-24 33-14-6-24-18-24-33V43z" fill="none" stroke="#55ef91" stroke-width="6" opacity=".45" filter="url(#neon)"/>
+  <path d="M66 34l24 9v19c0 15-10 27-24 33-14-6-24-18-24-33V43z" fill="url(#body)" stroke="#55ef91" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M55 63l8 8 15-16" fill="none" stroke="#b4ffd2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 44l21-8v13l-21 8z" fill="#fff" opacity=".08"/>
+</svg>
