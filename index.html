@@ -20,7 +20,7 @@
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v=: troque o número quando mudar styles.css ou script.js, para todos verem a versão nova na hora -->
-  <link rel="stylesheet" href="styles.css?v=20261021-2">
+  <link rel="stylesheet" href="styles.css?v=20261022-1">
   <link rel="preload" href="assets/vin-hero.jpg" as="image" fetchpriority="high">
 
   <!-- Dados estruturados do FAQ (SEO) -->
@@ -224,7 +224,6 @@
           <div class="offer-copy">
             <h2>Dê o primeiro passo para regularizar sua situação.</h2>
             <p class="muted">Solicite uma análise individual das suas restrições de crédito e conheça as providências que podem ser aplicáveis ao seu caso.</p>
-            <p class="fine">Se houver fundamento para medida judicial, você conhece as condições antes e decide se quer seguir.</p>
             <img class="offer-vin" src="assets/img/vin-ofertas-400.webp"
                  srcset="assets/img/vin-ofertas-400.webp 400w, assets/img/vin-ofertas-800.webp 800w"
                  sizes="(max-width: 850px) 190px, 270px" width="400" height="394"
@@ -233,22 +232,24 @@
           <div class="offer-stack">
           <img class="offer-cardart" src="assets/3d/cartao.svg" width="380" height="264" loading="lazy" decoding="async" alt="">
           <div class="offer-card" data-reveal>
-            <span class="offer-badge"><span class="ico ico-lock" aria-hidden="true"></span> Pagamento seguro</span>
-            <div class="price-label">Valor da análise inicial*</div>
-            <div class="price">R$ 29<span class="price-sep">,</span>90 <small>à vista</small></div>
+            <span class="offer-badge is-promo"><span class="ico ico-tag" aria-hidden="true"></span> Oferta especial</span>
+            <div class="price-label">Valor da análise inicial</div>
+            <div class="price"><span class="price-num">R$ 27<span class="price-sep">,</span>90</span> <small>à vista</small></div>
+            <p class="offer-list-title">O pagamento inclui:</p>
             <ul class="offer-list">
               <li>Análise individual das suas restrições de crédito</li>
               <li>Identificação de apontamentos indevidos</li>
               <li>Indicação das providências cabíveis ao seu caso</li>
               <li>Acompanhamento na sua área exclusiva</li>
             </ul>
+            <p class="offer-costs"><strong>Custos adicionais:</strong> petições, honorários advocatícios e despesas judiciais não estão incluídos. Se forem cabíveis no seu caso, você conhece as condições antes e decide se quer seguir.</p>
             <label class="consent">
               <input type="checkbox" id="consent">
               <span>Li e concordo com os <a href="#termos">Termos de Uso</a> e a <a href="#privacidade">Política de Privacidade</a>, e entendo que não há garantia de aumento de score ou aprovação de crédito.</span>
             </label>
-            <button class="btn" id="checkout" disabled>SOLICITAR MINHA ANÁLISE <span class="ico ico-arrow-up-right" aria-hidden="true"></span></button>
+            <button class="btn btn-glow" id="checkout" disabled>QUERO LIMPAR MEU NOME <span class="ico ico-arrow-right" aria-hidden="true"></span></button>
             <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
-            <p class="fine">*Não inclui petições, honorários advocatícios nem despesas judiciais.</p>
+            <p class="offer-secure"><span class="ico ico-lock" aria-hidden="true"></span> Pagamento seguro</p>
           </div>
           </div>
         </div>
@@ -291,7 +292,7 @@
           <img class="final-spark s1" src="assets/3d/brilho.svg" width="48" height="48" loading="lazy" decoding="async" alt="">
           <img class="final-spark s2" src="assets/3d/brilho.svg" width="48" height="48" loading="lazy" decoding="async" alt="">
         </div>
-        <h2><span class="h1-soft">Seu nome negativado</span> <em>pode ter <span class="mark">solução.<svg class="mark-line" viewBox="0 0 200 26" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 20C52 14 112 11 184 7M171 2.5 186 7l-10 11"/></svg></span></em></h2>
+        <h2><span class="h1-soft">Seu nome negativado</span> <em>tem <span class="mark">solução.<svg class="mark-line" viewBox="0 0 200 26" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 20C52 14 112 11 184 7M171 2.5 186 7l-10 11"/></svg></span></em></h2>
         <p class="muted">Conheça o serviço de regularização de restrições da Scorevin e dê o primeiro passo para recuperar sua saúde de crédito.</p>
         <a class="btn" href="#contratar" data-track="final_cta">COMEÇAR MINHA ANÁLISE <span class="ico ico-arrow-up-right" aria-hidden="true"></span></a>
       </div>
@@ -326,11 +327,11 @@
   </a>
 
   <!-- Barra CTA fixa no mobile -->
-  <div class="sticky-cta" id="stickyCta"><a class="btn" href="#contratar" data-track="sticky_cta">SOLICITAR MINHA ANÁLISE — <span class="nowrap">R$ 29,90</span></a></div>
+  <div class="sticky-cta" id="stickyCta"><a class="btn" href="#contratar" data-track="sticky_cta">SOLICITAR MINHA ANÁLISE — <span class="nowrap">R$ 27,90</span></a></div>
 
   <!-- Voltar ao topo -->
   <button class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo"><span class="ico ico-arrow-up" aria-hidden="true"></span></button>
 
-  <script src="script.js?v=20261021-2"></script>
+  <script src="script.js?v=20261022-1"></script>
 </body>
 </html>

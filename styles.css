@@ -76,6 +76,7 @@
   --i-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.9-3.7 3.6-5.6 7-5.6s6.1 1.9 7 5.6'/%3E%3C/svg%3E");
   --i-scale: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v16M8 20h8M5 7h14M5 7l-2.6 6.2a2.8 2.8 0 0 0 5.2 0zM19 7l-2.6 6.2a2.8 2.8 0 0 0 5.2 0z'/%3E%3C/svg%3E");
   --i-x-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='m9.2 9.2 5.6 5.6M14.8 9.2l-5.6 5.6'/%3E%3C/svg%3E");
+  --i-tag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z'/%3E%3Ccircle cx='7.5' cy='7.5' r='1.5'/%3E%3C/svg%3E");
   --i-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 }
 
@@ -122,6 +123,7 @@ figure { margin: 0; }
 .ico-user { --ico: var(--i-user); }
 .ico-scale { --ico: var(--i-scale); }
 .ico-x-circle { --ico: var(--i-x-circle); }
+.ico-tag { --ico: var(--i-tag); }
 
 /* Acessibilidade */
 .skip {
@@ -411,7 +413,6 @@ main > section { overflow-x: clip; }
 .offer-copy { display: flex; flex-direction: column; }
 .offer-copy h2 { max-width: 13em; }
 .offer-copy .muted { margin: 0 0 14px; max-width: 46ch; font-size: 17px; }
-.offer-copy .fine { max-width: 52ch; }
 .offer-vin { width: 260px; margin-top: 28px; }
 .offer-stack { position: relative; isolation: isolate; padding-top: 34px; }
 .offer-cardart {
@@ -444,14 +445,24 @@ main > section { overflow-x: clip; }
   padding: 6px 11px; border-radius: 50px; margin-bottom: 20px;
 }
 .offer-badge .ico { width: 13px; height: 13px; }
+/* Selo da promoção: o único selo verde cheio da página */
+.offer-badge.is-promo { gap: 8px; padding: 8px 14px; font-size: 12px; letter-spacing: .08em; background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 24px -12px rgba(85, 239, 145, .6); }
+.offer-badge.is-promo .ico { width: 14px; height: 14px; }
 .price-label { font-size: 14px; color: var(--muted); }
 .price {
-  margin: 6px 0 0; font-family: var(--font-display); font-size: 64px; font-weight: 800; line-height: 1;
-  letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: var(--ink);
+  margin: 4px 0 0; font-family: var(--font-display); font-size: clamp(64px, 6.2vw, 84px); font-weight: 800; line-height: 1;
+  letter-spacing: -0.045em; font-variant-numeric: tabular-nums; color: var(--accent);
 }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 6px; }
+.price-num { white-space: nowrap; }
 .price-sep { margin-right: -0.1em; }
-.price small { font-family: var(--font-body); font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
-.offer-list { display: grid; gap: 12px; margin: 26px 0; padding: 22px 0 0; border-top: 1px solid var(--line); list-style: none; font-size: 15.5px; line-height: 1.45; color: var(--ink-2); }
+.price small { font-family: var(--font-body); font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--muted); white-space: nowrap; }
+.offer-list-title { margin: 24px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.offer-list { display: grid; gap: 10px; margin: 0 0 18px; padding: 0; list-style: none; font-size: 15.5px; line-height: 1.45; color: var(--ink-2); }
+.offer-costs { margin: 0 0 20px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); font-size: 13px; line-height: 1.55; color: var(--ink-2); }
+.offer-costs strong { color: var(--ink); font-weight: 700; }
+.offer-secure { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 2px 0 0; font-size: 12.5px; color: var(--faint); }
+.offer-secure .ico { width: 13px; height: 13px; }
 .offer-list li { display: flex; gap: 10px; }
 .offer-list li::before { margin-top: 1px; }
 .offer-card .btn { width: 100%; }
@@ -573,6 +584,8 @@ main > section { overflow-x: clip; }
 }
 .to-top .ico { width: 20px; height: 20px; }
 .to-top.show { opacity: 1; visibility: visible; transform: none; }
+/* No celular, o botão some enquanto o cartão de preço está na tela (para não cobrir aceite e pagamento) */
+@media (max-width: 899px) { .to-top.show.on-offer { opacity: 0; visibility: hidden; transform: translateY(8px); } }
 .to-top:hover { background: var(--surface-2); }
 
 /* Entradas ao rolar: só existem com JS ativo (classe .js); sem JS tudo aparece normalmente */
@@ -650,10 +663,14 @@ main > section { overflow-x: clip; }
   .panel-sec { padding: 56px 0 80px; }
   .split { grid-template-columns: 1fr; gap: 36px; }
   .shot-panel img, .js .shot-panel[data-reveal].in img { transform: rotateY(-6deg) rotateX(2deg); }
-  .offer-sec { padding: 88px 0; }
-  .offer { grid-template-columns: 1fr; gap: 24px; }
-  .offer-vin { width: 180px; margin: 14px auto 0; }
-  .offer-cardart { width: 54%; right: 10px; top: -10px; }
+  /* Celular: preço e botão primeiro; o Vin da oferta só aparece no computador */
+  .offer-sec { padding: 64px 0 72px; }
+  .offer { grid-template-columns: 1fr; gap: 6px; }
+  .offer-copy h2 { margin-bottom: 12px; }
+  .offer-copy .muted { margin-bottom: 0; }
+  .offer-vin { display: none; }
+  .offer-stack { padding-top: 26px; }
+  .offer-cardart { width: 46%; right: 8px; top: 0; }
   .faq-sec { padding: 56px 0 88px; }
   /* Em uma coluna o Vin da lâmpada só empurrava as perguntas para baixo: some aqui (sem ocupar espaço) */
   .faq-layout { grid-template-columns: 1fr; gap: 0; }
@@ -701,8 +718,29 @@ main > section { overflow-x: clip; }
   .scope-box.yes h3 { padding-right: 96px; }
   .scope-arrow { width: 76px; top: -50px; right: 14px; }
   .scope-box.next h3 { padding-right: 76px; }
-  .offer-card { padding: 26px 22px; }
-  .price { font-size: 52px; }
+  /* Celular: preço → custos → aceite → botão ficam juntos; o que o pagamento inclui vem logo abaixo.
+     Só a ordem visual muda (aceite continua antes do botão para quem navega pelo teclado). */
+  .offer-sec { padding-top: 40px; }
+  .offer-copy .muted { font-size: 16px; }
+  .offer-stack { padding-top: 22px; }
+  .offer-card { display: flex; flex-direction: column; padding: 22px 18px 20px; }
+  .offer-badge.is-promo { align-self: flex-start; margin-bottom: 12px; }
+  .offer-card .price-label { order: 2; }
+  .offer-card .price { order: 3; }
+  .offer-card .offer-costs { order: 4; margin-top: 14px; padding: 9px 12px; line-height: 1.5; }
+  .offer-card .consent { order: 5; }
+  .offer-card #checkout { order: 6; }
+  .offer-card .form-msg { order: 7; min-height: 0; margin-top: 8px; }
+  .offer-card .form-msg:empty { margin-top: 0; }
+  .offer-card .offer-secure { order: 8; margin-top: 10px; }
+  .offer-card .offer-list-title { order: 9; }
+  .offer-card .offer-list { order: 10; margin-bottom: 0; }
+  .price { font-size: clamp(56px, 17vw, 66px); }
+  .price small { font-size: 15px; }
+  .offer-list-title { margin-top: 18px; padding-top: 16px; }
+  .offer-list { gap: 8px; font-size: 15px; margin-bottom: 14px; }
+  .offer-costs { margin-bottom: 16px; padding: 10px 12px; font-size: 12.5px; }
+  .consent { margin-bottom: 14px; }
   .final-stage { width: 190px; }
 }
 
