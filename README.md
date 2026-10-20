@@ -5,7 +5,7 @@ Página estática (HTML/CSS/JS, sem build). Abra o `index.html` no navegador.
 ## Antes de publicar
 
 1. O hero usa `assets/vin-hero.mp4` (vídeo animado) com `assets/vin-hero.jpg` como capa enquanto carrega.
-   As demais ilustrações ficam em `assets/img/`, em WebP otimizado com duas larguras cada (ex.: `-400` e `-800`). Novas imagens devem ser convertidas antes de entrar na página: PNGs de 1–2 MB deixam o carregamento lento no celular.
+   As demais imagens ficam em `assets/img/`, em WebP otimizado com duas larguras cada (ex.: `-400` e `-800`). Novas imagens devem ser convertidas antes de entrar na página: PNGs de 1–2 MB deixam o carregamento lento no celular.
    O `404.html` usa caminhos `/scorevin/...`; se o site passar a usar domínio próprio, troque por `/`.
    O GitHub Pages deixa `styles.css` e `script.js` guardados no navegador por até 10 minutos. Para uma mudança aparecer na hora para todos, troque o número depois de `?v=` nos links desses arquivos (`index.html` e `404.html`).
 2. Em `script.js`, preencha `CHECKOUT_URL` (link de pagamento) e `WHATSAPP_NUMBER` (ex.: `5511999999999`).
