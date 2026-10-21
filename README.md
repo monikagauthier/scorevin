@@ -7,3 +7,5 @@ Arquivo: **scorevin-site.zip** — o site pronto para subir em qualquer hospedag
 3. Abra o seu domínio para conferir.
 
 Esta branch serve só para download. O site continua sendo editado na branch `main`.
+
+Versão do pacote: 96be4fb (botões QUERO LIMPAR MEU NOME AGORA, oferta De R$ 97,00 por R$ 27,90, checkout Cakto).
