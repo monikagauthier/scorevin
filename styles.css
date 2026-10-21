@@ -467,8 +467,13 @@ main > section { overflow-x: clip; }
 .price small { font-family: var(--font-body); font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--muted); white-space: nowrap; }
 .offer-list-title { margin: 24px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14.5px; font-weight: 700; color: var(--ink); }
 .offer-list { display: grid; gap: 10px; margin: 0 0 18px; padding: 0; list-style: none; font-size: 15.5px; line-height: 1.45; color: var(--ink-2); }
-.offer-costs { margin: 0 0 20px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); font-size: 13px; line-height: 1.55; color: var(--ink-2); }
-.offer-costs strong { color: var(--ink); font-weight: 700; }
+/* Último item da lista: o objetivo do serviço, em destaque verde e com seta de subida */
+.offer-list .is-goal {
+  margin-top: 4px; padding: 12px 14px; border: 1px solid rgba(85, 239, 145, .32); border-radius: 12px;
+  background: rgba(85, 239, 145, .07); color: var(--ink);
+}
+.offer-list .is-goal::before { -webkit-mask-image: var(--i-arrow-up-right); mask-image: var(--i-arrow-up-right); }
+.offer-list .is-goal strong { color: var(--accent); font-weight: 700; }
 .offer-secure { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 2px 0 0; font-size: 12.5px; color: var(--faint); }
 .offer-secure .ico { width: 13px; height: 13px; }
 .offer-list li { display: flex; gap: 10px; }
@@ -739,7 +744,7 @@ main > section { overflow-x: clip; }
   .scope-box.yes h3 { padding-right: 96px; }
   .scope-arrow { width: 76px; top: -50px; right: 14px; }
   .scope-box.next h3 { padding-right: 76px; }
-  /* Celular: preço → custos → aceite → botão ficam juntos; o que o pagamento inclui vem logo abaixo.
+  /* Celular: preço → aceite → botão ficam juntos; o que o pagamento inclui vem logo abaixo.
      Só a ordem visual muda (aceite continua antes do botão para quem navega pelo teclado). */
   .offer-sec { padding-top: 40px; }
   .offer-copy .muted { font-size: 16px; }
@@ -749,8 +754,7 @@ main > section { overflow-x: clip; }
   .offer-card .price-label { order: 2; }
   .offer-card .price-old { order: 3; margin-top: 8px; font-size: 15px; }
   .offer-card .price { order: 3; }
-  .offer-card .offer-costs { order: 4; margin-top: 14px; padding: 9px 12px; line-height: 1.5; }
-  .offer-card .consent { order: 5; }
+  .offer-card .consent { order: 5; margin-top: 20px; }
   .offer-card #checkout { order: 6; }
   .offer-card .form-msg { order: 7; min-height: 0; margin-top: 8px; }
   .offer-card .form-msg:empty { margin-top: 0; }
@@ -761,7 +765,7 @@ main > section { overflow-x: clip; }
   .price small { font-size: 15px; }
   .offer-list-title { margin-top: 18px; padding-top: 16px; }
   .offer-list { gap: 8px; font-size: 15px; margin-bottom: 14px; }
-  .offer-costs { margin-bottom: 16px; padding: 10px 12px; font-size: 12.5px; }
+  .offer-list .is-goal { padding: 11px 12px; }
   .consent { margin-bottom: 14px; }
   .final-stage { width: 190px; }
 }
