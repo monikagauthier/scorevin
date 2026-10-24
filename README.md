@@ -8,4 +8,4 @@ Arquivo: **scorevin-site.zip** — o site pronto para subir em qualquer hospedag
 
 Esta branch serve só para download. O site continua sendo editado na branch `main`.
 
-Versão do pacote: c32ad7d (oferta De R$ 97,00 por R$ 27,90 com objetivo final na lista, botões QUERO LIMPAR MEU NOME AGORA, checkout Cakto).
+Versão do pacote: 55ec67e (CNPJ 40.952.238/0001-31, sem telefone, oferta De R$ 97,00 por R$ 27,90, checkout Cakto).
