@@ -2,11 +2,14 @@
  * Preencha antes de publicar.
  * CHECKOUT_URL: link de pagamento (Mercado Pago, Stripe, Hotmart, Kiwify, etc.)
  * WHATSAPP_NUMBER: somente dígitos com DDI + DDD, ex.: '5511999999999'
+ * PRICE_BRL: preço mostrado na oferta, enviado ao Pixel da Meta (troque se o preço mudar)
+ * O código do Pixel da Meta fica no <head> do index.html.
  * ======================================================== */
 const CONFIG = {
   CHECKOUT_URL: 'https://pay.cakto.com.br/fuw8nk4',
   WHATSAPP_NUMBER: '',
-  WHATSAPP_MESSAGE: 'Olá! Quero saber mais sobre a análise da Scorevin.'
+  WHATSAPP_MESSAGE: 'Olá! Quero saber mais sobre a análise da Scorevin.',
+  PRICE_BRL: 27.90
 };
 
 // Menu mobile
@@ -75,6 +78,20 @@ function track(event) {
 document.querySelectorAll('[data-track]').forEach(el =>
   el.addEventListener('click', () => track(el.dataset.track))
 );
+
+// Pixel da Meta: avisa uma vez por visita quando a pessoa vê o cartão de preço (evento padrão ViewContent).
+// InitiateCheckout e Purchase ficam com a Cakto (Pixel configurado no produto), para não contar em dobro.
+const priceCard = document.querySelector('.offer-card');
+if (priceCard && 'IntersectionObserver' in window) {
+  const seen = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    seen.disconnect();
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'ViewContent', { content_name: 'Análise inicial Scorevin', value: CONFIG.PRICE_BRL, currency: 'BRL' });
+    }
+  }, { threshold: 0.3 });
+  seen.observe(priceCard);
+}
 
 
 
