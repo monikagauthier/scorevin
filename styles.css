@@ -512,7 +512,18 @@ main > section { overflow-x: clip; }
 .faq details[open] { background: var(--surface); border-bottom-color: transparent; }
 .faq details[open] summary { color: var(--ink); }
 .faq details[open] summary::after { rotate: 180deg; color: var(--accent); border-color: rgba(85, 239, 145, .4); background-size: 11px 1.75px, 1.75px 0; }
-.faq details p { margin: 0; padding: 0 16px 22px; max-width: 64ch; font-size: 15.5px; color: var(--ink-2); }
+/* Resposta: parágrafos curtos, termos-chave em verde e entrada suave ao abrir */
+.faq-a { padding: 0 16px 22px; max-width: 64ch; }
+.faq-a p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--ink-2); }
+.faq-a p + p { margin-top: 10px; }
+.faq-a strong { color: var(--accent); font-weight: 600; }
+.faq-a .faq-cta { margin-top: 14px; }
+.faq-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--accent); border-radius: 6px; }
+.faq-link .ico { width: 16px; height: 16px; transition: transform .3s var(--ease-out); }
+.faq-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.faq-link:hover .ico { transform: translateX(3px); }
+.faq details[open] .faq-a { animation: faq-in .45s var(--ease-out) both; }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } }
 @supports (interpolate-size: allow-keywords) {
   .faq { interpolate-size: allow-keywords; }
   .faq details::details-content { height: 0; overflow: clip; transition: height .4s var(--ease-out), content-visibility .4s allow-discrete; }
