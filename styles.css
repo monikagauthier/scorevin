@@ -449,7 +449,7 @@ main > section { overflow-x: clip; }
 .offer-badge.is-promo { gap: 8px; padding: 8px 14px; font-size: 12px; letter-spacing: .08em; background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 24px -12px rgba(85, 239, 145, .6); }
 .offer-badge.is-promo .ico { width: 14px; height: 14px; }
 .price-label { font-size: 14px; color: var(--muted); }
-/* "De R$ 97,00 por" riscado + selo do desconto, logo acima do preço */
+/* "De R$ 397,00 por" riscado + selo do desconto, logo acima do preço */
 .price-old { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 10px 0 0; font-size: 16px; line-height: 1.3; color: var(--muted); }
 .price-old del { font-weight: 600; color: var(--ink-2); text-decoration-thickness: 2px; text-decoration-color: rgba(243, 245, 244, .75); }
 .price-off {

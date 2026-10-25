@@ -9,7 +9,7 @@ const CONFIG = {
   CHECKOUT_URL: 'https://pay.cakto.com.br/fuw8nk4',
   WHATSAPP_NUMBER: '',
   WHATSAPP_MESSAGE: 'Olá! Quero saber mais sobre a análise da Scorevin.',
-  PRICE_BRL: 27.90
+  PRICE_BRL: 97.90
 };
 
 // Menu mobile
