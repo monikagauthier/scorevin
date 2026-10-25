@@ -8,4 +8,4 @@ Arquivo: **scorevin-site.zip** — o site pronto para subir em qualquer hospedag
 
 Esta branch serve só para download. O site continua sendo editado na branch `main`.
 
-Versão do pacote: ca0ba8e (Pixel da Meta, FAQ atualizado, CNPJ 40.952.238/0001-31, oferta De R$ 97,00 por R$ 27,90, checkout Cakto).
+Versão do pacote: 6d09bfb (preço De R$ 397,00 por R$ 97,90, Pixel da Meta, FAQ atualizado, CNPJ 40.952.238/0001-31, checkout Cakto).
